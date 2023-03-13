@@ -1,0 +1,22 @@
+{
+  "name": "version-check-server",
+  "description": "The server portion of the Version Check feature.",
+  "version": "0.0.0",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.14.1",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.7.6",
+    "cross-env": "7.0.3",
+    "mocha": "^10.0.0",
+    "ts-node": "10.4.0",
+    "typescript": "^4.7.4",
+    "web-streams-polyfill": "^3.2.1",
+    "wrangler": "2.0.24"
+  },
+  "private": true,
+  "scripts": {
+    "start": "wrangler dev",
+    "deploy": "wrangler publish",   
+    "mocha": "cross-env TS_NODE_FILES=true mocha --timeout 5000 -s 0 --exit --check-leaks --throw-deprecation --trace-warnings --require ts-node/register tests/**/*.test.ts"
+  }
+}

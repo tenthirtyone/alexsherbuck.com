@@ -1,0 +1,7 @@
+name = "version-check"
+compatibility_date = "2022-08-10"
+main = "src/index.ts"
+
+kv_namespaces = [
+  { binding = "VERSION_DATA", preview_id = "2b366e4661be48ab9d4a181e1cfc2888", id = "a216c8a03a9943a6a410debefc13876a" },
+]

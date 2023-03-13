@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/tenthirtyone/alexsherbuck.com/issues"
   },
-  "homepage": "https://github.com/tenthirtyone/alexsherbuck.com#readme"
+  "homepage": "https://github.com/tenthirtyone/alexsherbuck.com#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }

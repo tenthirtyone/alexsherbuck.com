@@ -11,6 +11,6 @@ export default {
     env: {},
     ctx: ExecutionContext
   ): Promise<Response> {
-    return await new Response("Hello World");
+    return await new Response("Hello Github Actions");
   },
 };

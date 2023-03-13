@@ -1,5 +1,3 @@
-import { Env } from "./types";
-
 /**
  *
  * @param  {Request} request
@@ -10,7 +8,7 @@ import { Env } from "./types";
 export default {
   async fetch(
     request: Request,
-    env: Env,
+    env: {},
     ctx: ExecutionContext
   ): Promise<Response> {
     return await new Response("Hello World");

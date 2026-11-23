@@ -15,12 +15,8 @@
   const root = document.documentElement;
   const valid = value => Object.prototype.hasOwnProperty.call(designs, value);
   const requested = new URLSearchParams(location.search).get('design');
-  let selected = 'original';
-  try {
-    const saved = localStorage.getItem('alex-portfolio-design');
-    if (valid(saved)) selected = saved;
-  } catch { /* Persistence is optional. */ }
-  if (valid(requested)) selected = requested;
+  const previewEnabled = valid(requested);
+  let selected = previewEnabled ? requested : 'briefing';
   root.dataset.design = selected;
   document.querySelector('meta[name="theme-color"]').content = designs[selected].color;
 
@@ -260,7 +256,6 @@
       history.replaceState(null, '', url);
       render();
       updateControls();
-      try { localStorage.setItem('alex-portfolio-design', selected); } catch { /* Optional persistence. */ }
       window.scrollTo({ top: 0, behavior: 'instant' });
       measureBar();
     };
@@ -282,9 +277,11 @@
     });
     render();
     updateControls();
-    root.classList.add('design-preview-enabled');
-    bar.hidden = false;
-    measureBar();
+    if (previewEnabled) {
+      root.classList.add('design-preview-enabled');
+      bar.hidden = false;
+      measureBar();
+    }
     if (selected !== 'mission' && location.hash && location.hash !== '#top') {
       const target = document.getElementById(location.hash.slice(1));
       if (target) requestAnimationFrame(() => target.scrollIntoView({ behavior: 'instant' }));

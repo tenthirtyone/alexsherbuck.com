@@ -78,9 +78,9 @@
         pages.append(create(`<header class="peer-header">${identity}<nav aria-label="Leadership profile navigation">${simpleNav}</nav></header>`));
         const intro = create('<div class="brief-intro"><p class="peer-kicker">Engineering leadership · Washington, DC</p><h1>Alex Sherbuck</h1></div>');
         intro.append(section('#top'));
-        pages.append(intro);
+        pages.append(intro, section('.impact-strip'));
         pages.append(create('<div class="brief-current"><span class="peer-kicker">Current focus</span><p>Leading projects at the U.S. Department of the Treasury.<br>Hands-on engineering, from architecture to delivery.</p></div>'));
-        tail(pages, [section('#work'), section('.impact-strip'), section('#writing'), career, section('#expertise'), section('#open-source'), section('#about'), section('#contact')]);
+        tail(pages, [section('#work'), section('#writing'), career, section('#expertise'), section('#open-source'), section('#about'), section('#contact')]);
       }
       if (selected === 'index') {
         pages.append(create(`<header class="index-header"><h1>Alex Sherbuck</h1><p>Engineering leader. Protocol engineer. Builder.</p><nav aria-label="Protocol index navigation">${simpleNav}</nav></header>`));
